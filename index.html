@@ -4,176 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title></title>
+    <title>Ванпанчмен Социальная Сеть</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .logo-img, .icon-img {
+            height: clamp(20px, 5vw, 25px);
+            object-fit: contain;
+        }
+
+        .search-input {
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            border: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        /* Post styles */
+        .post-card {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+        }
+
+        .post-avatar {
+            width: clamp(30px, 8vw, 40px);
+            height: clamp(30px, 8vw, 40px);
+            object-fit: cover;
+        }
+
+        .post-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 500px;
+        }
+
+        .post-meta {
+            font-size: clamp(0.75rem, 1.5vw, 0.8125rem);
+            color: #6c757d;
+            padding: 0.5rem;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 1rem;
+        }
+
+        .sidebar-card {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background-color: #fff;
+        }
+
+        .story-img {
+            width: clamp(40px, 10vw, 50px);
+            height: clamp(40px, 10vw, 50px);
+            object-fit: cover;
+        }
+
+        .recommendation-img {
+            width: clamp(25px, 6vw, 30px);
+            height: clamp(25px, 6vw, 30px);
+            object-fit: cover;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 575.98px) {
+            .header .row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header .col-4 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .search-input {
+                max-width: 100%;
+            }
+
+            .post-img {
+                max-height: 300px;
+            }
+
+            .sidebar {
+                padding: 0.5rem;
+            }
+
+            .sidebar-card {
+                padding: 0.25rem;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .post-img {
+                max-height: 400px;
+            }
+
+            .search-input {
+                max-width: 150px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container-fluid {
+                max-width: 1200px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="col-12 bg-light-subtle " style="height: 50px;">
-        <div class="col-8 bg-light-subtle mx-auto ds " style=" height: 25px;">
-            <div class="col-4 bg-light-subtle  ds" style="height: 25px;margin-top: 15px;">
-                <div class="col-1 bg-light-subtle" style="height:25px;">
-                    <img src="logo.png" class="col-12" style="height: 25px;margin-top:-6px;">
+    <!-- Header -->
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start">
+                    <img src="logo.png" class="logo-img me-2" alt="Логотип 1">
+                    <img src="line.png" class="logo-img me-2" alt="Разделитель">
+                    <img src="logo2.png" class="logo-img" alt="Логотип 2">
                 </div>
-                <div class="col-1 bg-light-subtle" style="height:25px;">
-                    <img src="line.png" class="col-5" style=" height: 30px;margin-top: -10px;margin-left:10px;">
+                <div class="col-12 col-md-4 text-center my-2 my-md-0">
+                    <input name="s" placeholder="Поиск" type="search" class="search-input">
                 </div>
-                <div class="col-3 bg-light-subtle" style="height:25px;">
-                    <img src="logo2.png" class="col-12" style=" height: 25px;margin-top:-5px;">
-                </div>
-            </div>
-            <div class="col-4 bg-light-subtle " style="height: 25px;margin-top: 10px;">
-                <input name="s" placeholder="Поиск" type="search" class="col-8 shadow-sm" style="height: 19px;border-radius: 3px;border:none;text-align: center;margin-left:40px;">
-            </div>
-            <div class="col-4 bg-light-subtle ds" style=" height: 25px; margin-top: 15px;">
-                <div class="col-6 bg-light-subtle" style=" height: 20px;"></div>
-                <div class="col-2 bg-light-subtle" style=" height: 20px;">
-                    <img src="1.png" class="col-6" style="height: 20px;margin-top: -10px;margin-left:10px;">
-                </div>
-                <div class="col-2 bg-light-subtle" style=" height: 20px;">
-                    <img src="2.png" class="col-6" style="height: 20px;margin-top: -10px;margin-left:10px;">
-                </div>
-                <div class="col-2 bg-light-subtle" style=" height: 20px;">
-                    <img src="3.png" class="col-6" style="height: 20px;margin-top: -10px;margin-left:10px;">
+                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+                    <img src="1.png" class="icon-img me-2" alt="Иконка 1">
+                    <img src="2.png" class="icon-img me-2" alt="Иконка 2">
+                    <img src="3.png" class="icon-img" alt="Иконка 3">
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-8 bg-light-subtle mx-auto ds " style="height: 1600px;">
-        <div class="col-8 bg-light-subtle " style="height: 1600px;">
-            <div class="col-12 border border-secondary h-400" style="border-radius: 4px;">
-              <div class="col-4  ds " style="height: 60px;">
-                <div class="col-3   " style=" height: 50px; ">
-                    <img src="panch.png" class="col-12" style=" height: 40px;">
-                </div>
-                <div class="col-9   " style=" height: 50px ;">
-                    <h5 style="margin-left:10px;">Ванпанчмен</h5>
-                    <p style=" margin-left: 10px;color: gray;margin-top: -10px;">Сайтама</p>
-                </div>
-            </div>
-             <div>
-                <img src="111.png" class="img col-12">
-            </div>
-            <div>
-                <p style="font-size:13px;margin-left: 10px;" class="fw-light">LoL,KeK и еще...13</p>
-                 <p style="font-size:13px;margin-left: 10px;margin-top:-10px;" class="fw-light">Мощь, сила , удар</p>
-                 <p style="font-size:13px;margin-left: 10px;margin-top:-10px;" class="fw-light">5 недель назад</p>
-            </div>   
-            </div>
-           
-            
-            <div class="col-12 border border-secondary h-400 mg-t-10" style="border-radius: 4px;">
-                <div class="col-4  ds " style="height: 60px;">
-                <div class="col-3   " style=" height: 50px; ">
-                    <img src="panch.png" class="col-12" style=" height: 40px;">
-                </div>
-                <div class="col-9   " style=" height: 50px ;">
-                    <h5 style="margin-left:10px;">Ванпанчмен</h5>
-                    <p style=" margin-left: 10px;color: gray;margin-top: -10px;">Сайтама</p>
-                </div>
-            </div>  
-             <div>
-                <img src="112.jpeg" class="img col-6" style="margin-left: 150px;">
-            </div> 
-            <p style="font-size:13px;margin-left: 10px;" class="fw-light">LoL,KeK и еще...13</p>
-                 <p style="font-size:13px;margin-left: 10px;margin-top:-10px;" class="fw-light">Мощь, сила , удар</p>
-                 <p style="font-size:13px;margin-left: 10px;margin-top:-10px;" class="fw-light">5 недель назад</p>
-            </div>
-            
-            <div class="col-12 border border-secondary h-400 mg-t-10" style="border-radius: 4px;">
-                <div class="col-4  ds " style="height: 60px;">
-                <div class="col-3   " style=" height: 50px; ">
-                    <img src="panch.png" class="col-12" style=" height: 40px;">
-                </div>
-                <div class="col-9   " style=" height: 50px ;">
-                    <h5 style="margin-left:10px;">Ванпанчмен</h5>
-                    <p style=" margin-left: 10px;color: gray;margin-top: -10px;">Сайтама</p>
-                </div>
-            </div>
-            <div>
-                <img src="113.jpeg" class="img col-11" style="margin-left: 25px;">
-            </div> 
-            <p style="font-size:13px;margin-left: 10px;" class="fw-light">LoL,KeK и еще...13</p>
-                 <p style="font-size:13px;margin-left: 10px;margin-top:-10px;" class="fw-light">Мощь, сила , удар</p>
-                 <p style="font-size:13px;margin-left: 10px;margin-top:-10px;" class="fw-light">5 недель назад</p>  
-            </div>
-           
-        </div>
 
-        <div class="col-4  bg-light-subtle" style="height: 800px;">
-            <div class="col-11  mx-auto ds border border-secondary" style="height: 60px; border-radius:4px;">
-                <div class="col-3   " style=" height: 50px; ">
-                    <img src="panch.png" class="col-12" style=" height: 40px;">
+    <!-- Main Content -->
+    <div class="container-fluid my-3">
+        <div class="row">
+            <!-- Posts Section -->
+            <div class="col-12 col-lg-8">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="panch.png" class="post-avatar me-2" alt="Аватар">
+                        <div>
+                            <h5 class="mb-0">Ванпанчмен</h5>
+                            <p class="mb-0 text-muted">Сайтама</p>
+                        </div>
+                    </div>
+                    <img src="111.png" class="post-img" alt="Пост 1">
+                    <div class="post-meta">
+                        <p class="mb-0">LoL, KeK и еще...13</p>
+                        <p class="mb-0">Мощь, сила, удар</p>
+                        <p class="mb-0">5 недель назад</p>
+                    </div>
                 </div>
-                <div class="col-9   " style=" height: 50px ;">
-                    <h5 style="margin-left:10px;">Ванпанчмен</h5>
-                    <p style=" margin-left: 10px;color: gray;margin-top: -10px;">Сайтама</p>
+
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="panch.png" class="post-avatar me-2" alt="Аватар">
+                        <div>
+                            <h5 class="mb-0">Ванпанчмен</h5>
+                            <p class="mb-0 text-muted">Сайтама</p>
+                        </div>
+                    </div>
+                    <img src="112.jpeg" class="post-img" alt="Пост 2">
+                    <div class="post-meta">
+                        <p class="mb-0">LoL, KeK и еще...13</p>
+                        <p class="mb-0">Мощь, сила, удар</p>
+                        <p class="mb-0">5 недель назад</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-11 mx-auto mg-t-5 bg-light-subtle border border-secondary" style="height: 250px;border-radius: 4px;margin-top:px;">
-            <div class="ds">
-                <div class="col-6 fw-light" style=" height: 50px;margin-left: 20px;padding-top: 10px;">Истории</div>
-                <div class="col-6 fw-light" style=" height: 50px;padding-top: 10px;">Смотреть все</div>
-            </div>
-            <div class="ds">
-                <div class="col-3 " style=" height:70px;">
-                    <img src="panch1.png" class="col-12" style=" height: 50px;margin-top: 10px;">
-                </div>
-                <div class="col-9 fw-light" style=" height: 70px;">
-                    <h7  style="margin-top: 10px;margin-left: 10px;">Генос</h7>
-                </div>
-            </div>
-            <div class="ds">
-                <div class="col-3 " style=" height: 70px;">
-                    <img src="panch2.webp" class="col-12" style=" height: 70px;">
-                </div>
-                <div class="col-9 fw-light" style=" height: 70px;">
-                    <h7 style="margin-top: 10px;margin-left: 10px;">Кинг</h7>
-                </div>
-            </div>
-            <div class="ds">
-                <div class="col-3 " style=" height: 70px;">
-                    <img src="panch3.webp" class="col-12" style=" height: 60px;">
-                </div>
-                <div class="col-9 fw-light" style=" height: 70px;">
-                    <h7 style="margin-top: 10px;margin-left: 10px;">Фубуки</h7>
-                </div>
-            </div>
-            </div>
-            <div class="col-11 bg-danger mx-auto mg-t-5 bg-light-subtle border border-secondary" style="height: 190px;border-radius:4px;">
-                <div class="ds">
-                     <div class="col-9  fw-light" style=" height:40px;padding-top: 10px;margin-left:10px;">Рекомендации для вас</div>
-                     <div class="col-3  fw-light" style=" height:40px;padding-top: 10px;">Все</div>
-                </div>
-            <div class="ds " style="margin-top: 20px;">
-                <div class="col-3 " style=" height:40px;">
-                    <img src="mbn.png" class="col-6" style="height: 30px;">
-                </div>
-                <div class="col-9 " style=" height: 40px;">
-                    <h7 m>mbn360</h7>
-                    <p class="text-primary" style="margin-top: -5px;">подписаться</p>
-                </div>
-            </div>
-            <div class="ds">
-                <div class="col-3 " style=" height: 40px;">
-                    <img src="9gag.png" class="col-6" style="height: 30px;">
-                </div>
-                <div class="col-9 " style=" height: 40px;">
-                    <h7 m>9gag</h7>
-                    <p class="text-primary" style="margin-top: -5px;">подписаться</p>
+
+                <!-- Post 3 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="panch.png" class="post-avatar me-2" alt="Аватар">
+                        <div>
+                            <h5 class="mb-0">Ванпанчмен</h5>
+                            <p class="mb-0 text-muted">Сайтама</p>
+                        </div>
+                    </div>
+                    <img src="113.jpeg" class="post-img" alt="Пост 3">
+                    <div class="post-meta">
+                        <p class="mb-0">LoL, KeK и еще...13</p>
+                        <p class="mb-0">Мощь, сила, удар</p>
+                        <p class="mb-0">5 недель назад</p>
+                    </div>
                 </div>
             </div>
-            <div class="ds">
-                <div class="col-3 " style=" height: 40px;">
-                    <img src="groot.png" class="col-6" style="height: 30px;">
+
+            <!-- Sidebar Section -->
+            <div class="col-12 col-lg-4 sidebar">
+                <!-- Profile Card -->
+                <div class="sidebar-card d-flex align-items-center">
+                    <img src="panch.png" class="post-avatar me-2" alt="Аватар">
+                    <div>
+                        <h5 class="mb-0">Ванпанчмен</h5>
+                        <p class="mb-0 text-muted">Сайтама</p>
+                    </div>
                 </div>
-                <div class="col-9 " style=" height: 40px;">
-                    <h7 m>grot</h7>
-                    <p class="text-primary" style="margin-top: -5px;">подписаться</p>
+
+                <!-- Stories Card -->
+                <div class="sidebar-card">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Истории</span>
+                        <a href="#" class="text-primary">Смотреть все</a>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="panch1.png" class="story-img me-2" alt="Генос">
+                        <span>Генос</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="panch2.webp" class="story-img me-2" alt="Кинг">
+                        <span>Кинг</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="panch3.webp" class="story-img me-2" alt="Фубуки">
+                        <span>Фубуки</span>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Recommendations Card -->
+                <div class="sidebar-card">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Рекомендации для вас</span>
+                        <a href="#" class="text-primary">Все</a>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="mbn.png" class="recommendation-img me-2" alt="mbn360">
+                        <div>
+                            <span>mbn360</span>
+                            <p class="mb-0 text-primary">подписаться</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="9gag.png" class="recommendation-img me-2" alt="9gag">
+                        <div>
+                            <span>9gag</span>
+                            <p class="mb-0 text-primary">подписаться</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="groot.png" class="recommendation-img me-2" alt="grot">
+                        <div>
+                            <span>grot</span>
+                            <p class="mb-0 text-primary">подписаться</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
